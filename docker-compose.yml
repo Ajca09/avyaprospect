@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "@Ajca9121683"   # senha protegida por aspas
+      POSTGRES_DB: production
+    ports:
+      - "123:5432"   # Porta externa 123 -> interna padrão do Postgres (5432)
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
